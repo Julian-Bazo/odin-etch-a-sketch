@@ -1,20 +1,36 @@
-// Initialize grid container
-const gridContainer = document.querySelector(".container");
+// Initialize DOM elements
 
+// Grid
+const gridContainer = document.querySelector(".container");
+gridContainer.classList.add("container");
+
+// Customization button
+const customizeGridButton = document.createElement('button');
+customizeGridButton.textContent = "Click me to customize the grid";
+customizeGridButton.classList.add("customizeButton");
+gridContainer.appendChild(customizeGridButton);
+
+// Grid length and height starting variables
 let gridLength = 16;
 let gridHeight = 16;
 
+// Loop to create grid
+
+// This first loop creates the number of vertical rows
 for (i = 0; i < gridHeight; i++) {
     const newYDiv = document.createElement('div');
     newYDiv.classList.add(`yDiv`);
     gridContainer.appendChild(newYDiv);
+
+    // This second loop creates the number of horizontal columns
     for (j = 0; j < gridLength; j++) { 
         const newXDiv = document.createElement("div");
         newXDiv.classList.add("drawDiv");
-        newXDiv.textContent = `Div ${j +1}`;
+        // newXDiv.textContent = `Div ${j +1}`;
         newYDiv.appendChild(newXDiv);
     }
 }
+
 
 // Array.apply(null, gridArray(gridLength));
 

@@ -9,5 +9,17 @@
 }
 
 .drawDiv:hover {
-    background-color: blue;
+    background-color: rgb(106, 106, 107);
+}
+
+.container {
+    display: flex;
+    flex-basis: 960px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customizeButton {
+    margin-bottom: 20px;
 }
