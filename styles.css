@@ -1,0 +1,13 @@
+.drawDiv {
+    background-color: #eee;
+    margin: 0px;
+    padding: 10px;
+}
+
+.yDiv {
+    display: flex;
+}
+
+.drawDiv:hover {
+    background-color: blue;
+}
