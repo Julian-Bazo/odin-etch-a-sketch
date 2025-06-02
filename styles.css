@@ -1,11 +1,13 @@
 .columnDiv {
     background-color: #eee;
     margin: 0px;
-    padding: 10px;
+    flex: 1;
 }
 
 .rowDiv {
     display: flex;
+    background-color: #eee;
+    flex: 1;
 }
 
 /* .drawDiv:hover {
@@ -18,7 +20,7 @@
 
 .totalContainer {
     display: flex;
-    flex-basis: 960px;
+    /* flex-basis: 960px; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -26,4 +28,21 @@
 
 .customizeButton {
     margin-bottom: 20px;
+}
+
+.gridDiv {
+    width: 320px;
+    height: 320px;
+    max-width: 320px;
+    max-height: 320px;
+}
+
+.tempGrid {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 320px;
+    max-width: 320px;
+    max-height: 320px;
+    background-color: aqua;
 }

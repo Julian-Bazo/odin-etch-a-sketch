@@ -26,8 +26,7 @@ customizeGridButton.addEventListener("click", () => {
 });
 
 // Grid length and height starting variables
-let gridLength = 16;
-let gridHeight = 16;
+let gridDimensions = 25;
 
 // Global variable to allow grid deletion
 let globalDeleteChecker = 0;
@@ -35,21 +34,23 @@ let globalDeleteChecker = 0;
 // Loop to create grid
 
 // This first loop creates the number of vertical rows
-function createGrid(gridHeight, gridLength){
+function createGrid(gridDimensions){
     
     const tempGrid = document.createElement('div');
     tempGrid.classList.add("tempGrid");
     gridDiv.appendChild(tempGrid);
 
-        for (i = 0; i < gridHeight; i++) {
+        for (i = 0; i < gridDimensions; i++) {
             const newRowDiv = document.createElement('div');
             newRowDiv.classList.add("rowDiv");
+            newRowDiv.innerHTML = "&nbsp";
             tempGrid.appendChild(newRowDiv);
 
         // This second loop creates the number of horizontal columns
-            for (j = 0; j < gridLength; j++) { 
+            for (j = 0; j < gridDimensions; j++) { 
                 const newColumnDiv = document.createElement("div");
                 newColumnDiv.classList.add("columnDiv");
+                newColumnDiv.innerHTML = "&nbsp";
                 newColumnDiv.addEventListener("mouseenter", () => {
                     newColumnDiv.classList.add("drawnColumnDiv");
                 })
@@ -62,7 +63,7 @@ function createGrid(gridHeight, gridLength){
     }
 };
 
-createGrid(gridHeight, gridLength);
+createGrid(gridDimensions);
 
 
 // Array.apply(null, gridArray(gridLength));
