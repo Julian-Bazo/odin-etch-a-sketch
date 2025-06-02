@@ -8,11 +8,15 @@
     display: flex;
 }
 
-.drawDiv:hover {
+/* .drawDiv:hover {
+    background-color: rgb(106, 106, 107);
+} */
+
+.drawnDiv {
     background-color: rgb(106, 106, 107);
 }
 
-.container {
+.totalContainer {
     display: flex;
     flex-basis: 960px;
     flex-direction: column;
