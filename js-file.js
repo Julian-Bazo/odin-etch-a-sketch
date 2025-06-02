@@ -19,14 +19,13 @@ totalContainer.appendChild(gridDiv);
 customizeGridButton.addEventListener("click", () => {
     let gridSize = prompt("Choose new grid size", "");
     globalDeleteChecker++;
-    gridLength = gridSize;
-    gridHeight = gridSize;
-    createGrid(gridHeight, gridLength);
+    gridDimensions = gridSize;
+    createGrid(gridDimensions);
     // console.log(globalDeleteChecker);
 });
 
 // Grid length and height starting variables
-let gridDimensions = 25;
+let gridDimensions = 16;
 
 // Global variable to allow grid deletion
 let globalDeleteChecker = 0;
@@ -43,7 +42,6 @@ function createGrid(gridDimensions){
         for (i = 0; i < gridDimensions; i++) {
             const newRowDiv = document.createElement('div');
             newRowDiv.classList.add("rowDiv");
-            newRowDiv.innerHTML = "&nbsp";
             tempGrid.appendChild(newRowDiv);
 
         // This second loop creates the number of horizontal columns

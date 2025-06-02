@@ -1,13 +1,14 @@
 .columnDiv {
     background-color: #eee;
-    margin: 0px;
+    display: flex;
     flex: 1;
+    min-width: 0;
 }
 
 .rowDiv {
-    display: flex;
     background-color: #eee;
-    flex: 1;
+    display: flex;    
+    min-height: 0;
 }
 
 /* .drawDiv:hover {
@@ -31,6 +32,8 @@
 }
 
 .gridDiv {
+    display: flex;
+    flex-direction: column;
     width: 320px;
     height: 320px;
     max-width: 320px;
@@ -39,10 +42,8 @@
 
 .tempGrid {
     display: flex;
-    flex: 1;
     flex-direction: column;
     height: 320px;
-    max-width: 320px;
     max-height: 320px;
-    background-color: aqua;
+    min-width: 0;
 }
