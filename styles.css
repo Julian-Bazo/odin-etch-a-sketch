@@ -1,10 +1,10 @@
-.drawDiv {
+.columnDiv {
     background-color: #eee;
     margin: 0px;
     padding: 10px;
 }
 
-.yDiv {
+.rowDiv {
     display: flex;
 }
 
@@ -12,7 +12,7 @@
     background-color: rgb(106, 106, 107);
 } */
 
-.drawnDiv {
+.drawnColumnDiv {
     background-color: rgb(106, 106, 107);
 }
 

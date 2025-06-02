@@ -42,18 +42,18 @@ function createGrid(gridHeight, gridLength){
     gridDiv.appendChild(tempGrid);
 
         for (i = 0; i < gridHeight; i++) {
-            const newYDiv = document.createElement('div');
-            newYDiv.classList.add("yDiv");
-            tempGrid.appendChild(newYDiv);
+            const newRowDiv = document.createElement('div');
+            newRowDiv.classList.add("rowDiv");
+            tempGrid.appendChild(newRowDiv);
 
         // This second loop creates the number of horizontal columns
             for (j = 0; j < gridLength; j++) { 
-                const newXDiv = document.createElement("div");
-                newXDiv.classList.add("drawDiv");
-                newXDiv.addEventListener("mouseenter", () => {
-                    newXDiv.classList.add("drawnDiv");
+                const newColumnDiv = document.createElement("div");
+                newColumnDiv.classList.add("columnDiv");
+                newColumnDiv.addEventListener("mouseenter", () => {
+                    newColumnDiv.classList.add("drawnColumnDiv");
                 })
-                newYDiv.appendChild(newXDiv);
+                newRowDiv.appendChild(newColumnDiv);
         }
         }
 
