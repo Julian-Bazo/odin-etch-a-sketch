@@ -4,6 +4,11 @@
 const totalContainer = document.querySelector(".totalContainer");
 totalContainer.classList.add("totalContainer");
 
+// Website header initialization
+const websiteHeader = document.createElement("h1");
+websiteHeader.textContent = "Etch-A-Sketch";
+totalContainer.appendChild(websiteHeader);
+
 // Customization button
 const customizeGridButton = document.createElement('button');
 customizeGridButton.textContent = "Click me to customize the grid";
@@ -83,3 +88,15 @@ function recreateGrid(gridDimensions){
         }
         }
 };
+
+// Checkbox initialization
+const randomColorCheckbox = document.createElement("input");
+randomColorCheckbox.type = "checkbox";
+randomColorCheckbox.classList.add("checkbox");
+totalContainer.appendChild(randomColorCheckbox);
+
+// Checkbox label initialization
+const randomColorCheckboxLabel = document.createElement("p");
+randomColorCheckboxLabel.textContent = "Click to randomize colors!";
+randomColorCheckboxLabel.classList.add("checkboxLabel");
+totalContainer.appendChild(randomColorCheckboxLabel);
