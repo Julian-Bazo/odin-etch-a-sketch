@@ -11,10 +11,6 @@
     min-height: 0;
 }
 
-/* .drawDiv:hover {
-    background-color: rgb(106, 106, 107);
-} */
-
 .drawnColumnDiv {
     background-color: rgb(106, 106, 107);
 }
@@ -37,13 +33,13 @@
     width: 320px;
     height: 320px;
     max-width: 320px;
-    max-height: 320px;
+    max-height: 295px;
 }
 
 .tempGrid {
     display: flex;
     flex-direction: column;
     height: 320px;
-    max-height: 320px;
+    max-height: 295px;
     min-width: 0;
 }
