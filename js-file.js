@@ -17,29 +17,54 @@ totalContainer.appendChild(gridDiv);
 
 // Add button on-click event listener
 customizeGridButton.addEventListener("click", () => {
-    let gridSize = prompt("Choose new grid size", "");
-    globalDeleteChecker++;
+    let gridSize = prompt("Choose new grid size between 16 and 100!", "");
+    if (gridSize < 16 || gridSize > 100) {
+        alert("It must be between 16 and 100!")
+    }
+    else {
     gridDimensions = gridSize;
-    createGrid(gridDimensions);
-    // console.log(globalDeleteChecker);
+    removeGrid();
+    recreateGrid(gridDimensions);
+    }
 });
 
 // Grid length and height starting variables
 let gridDimensions = 16;
 
-// Global variable to allow grid deletion
-let globalDeleteChecker = 0;
+// Initialize grid on website open
+const tempGrid = document.createElement('div');
+    tempGrid.classList.add("tempGrid");
+    gridDiv.appendChild(tempGrid);
 
 // Loop to create grid
 
 // This first loop creates the number of vertical rows
-function createGrid(gridDimensions){
-    
-    const tempGrid = document.createElement('div');
-    tempGrid.classList.add("tempGrid");
-    gridDiv.appendChild(tempGrid);
+for (i = 0; i < 16; i++) {
+        const newRowDiv = document.createElement('div');
+        newRowDiv.classList.add("rowDiv");
+        tempGrid.appendChild(newRowDiv);
 
-        for (i = 0; i < gridDimensions; i++) {
+    // This second loop creates the number of horizontal columns
+        for (j = 0; j < 16; j++) { 
+            const newColumnDiv = document.createElement("div");
+            newColumnDiv.classList.add("columnDiv");
+            newColumnDiv.innerHTML = "&nbsp";
+            newColumnDiv.addEventListener("mouseenter", () => {
+                newColumnDiv.classList.add("drawnColumnDiv");
+            })
+            newRowDiv.appendChild(newColumnDiv);
+    }
+    }
+
+// Function for recreation 
+function recreateGrid(gridDimensions){
+
+    let tempGrid = document.createElement('div');
+    tempGrid.classList.add("tempGrid");
+    // gridDiv.appendChild(tempGrid);
+
+
+    for (i = 0; i < gridDimensions; i++) {
             const newRowDiv = document.createElement('div');
             newRowDiv.classList.add("rowDiv");
             tempGrid.appendChild(newRowDiv);
@@ -55,15 +80,12 @@ function createGrid(gridDimensions){
                 newRowDiv.appendChild(newColumnDiv);
         }
         }
-
-    if (globalDeleteChecker > 0) {
-        
-    }
+    return gridDiv.appendChild(tempGrid);
 };
 
-createGrid(gridDimensions);
-
-
+function removeGrid() {
+    tempGrid.remove();
+}
 // Array.apply(null, gridArray(gridLength));
 
 // console.log(divArray);
