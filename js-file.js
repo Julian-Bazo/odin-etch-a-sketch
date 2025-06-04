@@ -57,7 +57,13 @@ for (i = 0; i < 16; i++) {
             newColumnDiv.classList.add("columnDiv");
             newColumnDiv.innerHTML = "&nbsp";
             newColumnDiv.addEventListener("mouseenter", () => {
+                if (randomCounter % 2 !== 0) {
                 newColumnDiv.style.backgroundColor = getColor();
+                newColumnDiv.style.opacity = embolden();
+                }
+                if (randomCounter % 2 === 0){
+                    newColumnDiv.style.backgroundColor = "black";
+                }
             })
             newRowDiv.appendChild(newColumnDiv);
     }
@@ -83,6 +89,7 @@ function recreateGrid(gridDimensions){
                 newColumnDiv.innerHTML = "&nbsp";
                 newColumnDiv.addEventListener("mouseenter", () => {
                     newColumnDiv.style.backgroundColor = getColor();
+                    newColumnDiv.style.opacity = embolden();
                 })
                 newRowDiv.appendChild(newColumnDiv);
         }
@@ -102,15 +109,18 @@ randomColorCheckboxLabel.classList.add("checkboxLabel");
 totalContainer.appendChild(randomColorCheckboxLabel);
 
 // Checkbox event handler
-// let randomCounter = 0;
+let randomCounter = 2;
 
-// randomColorCheckbox.addEventListener("click", () => {
-//     randomCounter++
-// //     Array.from(document.getElementsByClassName("columnDiv"))
-// //    .forEach((div) => div.classList.add("randomize"));
-//     Array.from(document.getElementsByClassName("drawnColumnDiv"))
-//     .forEach((div) => div.classList.remove("drawnColumnDiv"));
-// });
+randomColorCheckbox.addEventListener("click", () => {
+    randomCounter++
+    let divEraser = document.querySelectorAll(".columnDiv");
+    
+    Array.from(divEraser).forEach(element => {
+        element.style.backgroundColor = "rgb(238, 238, 238)";
+        element.style.opacity = 1;
+    })
+});
+
 
 // Function to create a random color
 function getColor() {
@@ -121,5 +131,15 @@ function getColor() {
   }
   return color;
 }
+
+// Opacity variable initialization
+let opacityNumber = .01;
+
+// Opacity function to increase opacity every time the function is activated
+function embolden() {
+    opacityNumber += .01;
+    return opacityNumber;
+}
+
 
 // document.documentElement.style.setProperty('--randomColor', getColor());
