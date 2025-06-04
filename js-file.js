@@ -57,7 +57,7 @@ for (i = 0; i < 16; i++) {
             newColumnDiv.classList.add("columnDiv");
             newColumnDiv.innerHTML = "&nbsp";
             newColumnDiv.addEventListener("mouseenter", () => {
-                newColumnDiv.classList.add("drawnColumnDiv");
+                newColumnDiv.style.backgroundColor = getColor();
             })
             newRowDiv.appendChild(newColumnDiv);
     }
@@ -82,7 +82,7 @@ function recreateGrid(gridDimensions){
                 newColumnDiv.classList.add("columnDiv");
                 newColumnDiv.innerHTML = "&nbsp";
                 newColumnDiv.addEventListener("mouseenter", () => {
-                    newColumnDiv.classList.add("drawnColumnDiv");
+                    newColumnDiv.style.backgroundColor = getColor();
                 })
                 newRowDiv.appendChild(newColumnDiv);
         }
@@ -100,3 +100,26 @@ const randomColorCheckboxLabel = document.createElement("p");
 randomColorCheckboxLabel.textContent = "Click to randomize colors!";
 randomColorCheckboxLabel.classList.add("checkboxLabel");
 totalContainer.appendChild(randomColorCheckboxLabel);
+
+// Checkbox event handler
+// let randomCounter = 0;
+
+// randomColorCheckbox.addEventListener("click", () => {
+//     randomCounter++
+// //     Array.from(document.getElementsByClassName("columnDiv"))
+// //    .forEach((div) => div.classList.add("randomize"));
+//     Array.from(document.getElementsByClassName("drawnColumnDiv"))
+//     .forEach((div) => div.classList.remove("drawnColumnDiv"));
+// });
+
+// Function to create a random color
+function getColor() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// document.documentElement.style.setProperty('--randomColor', getColor());

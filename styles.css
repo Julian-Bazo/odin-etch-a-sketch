@@ -11,9 +11,13 @@
     min-height: 0;
 }
 
-.drawnColumnDiv {
-    background-color: rgb(106, 106, 107);
+/* :root {
+    --randomColor: blue;
 }
+
+.drawnColumnDiv {
+    background-color: var(--randomColor);
+} */
 
 .totalContainer {
     display: flex;
@@ -57,3 +61,4 @@ h1 {
 * {
     background-color: rgb(160, 253, 255);
 }
+
