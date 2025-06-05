@@ -68,16 +68,6 @@ for (i = 0; i < 16; i++) {
                     newColumnDiv.style.backgroundColor = "black";
                     }
                 })
-            
-            // newColumnDiv.addEventListener("mouseenter", () => {
-            //     if (randomCounter % 2 !== 0) {
-            //     newColumnDiv.style.backgroundColor = getColor();
-            //     newColumnDiv.style.opacity = embolden();
-            //     }
-            //     if (randomCounter % 2 === 0){
-            //         newColumnDiv.style.backgroundColor = "black";
-            //     }
-            // })
             newRowDiv.appendChild(newColumnDiv);
     }
     }
@@ -134,12 +124,15 @@ let randomCounter = 2;
 
 randomColorCheckbox.addEventListener("click", () => {
     randomCounter++
-    let divEraser = document.querySelectorAll(".columnDiv");
+    gridDiv.removeChild(gridDiv.firstChild);
+    recreateGrid(gridDimensions);
+    // let divEraser = document.querySelectorAll(".columnDiv");
     
-    Array.from(divEraser).forEach(element => {
-        element.style.backgroundColor = "rgb(238, 238, 238)";
-        element.style.opacity = 1;
-    })
+    // Array.from(divEraser).forEach(element => {
+    //     element.style.backgroundColor = "rgb(238, 238, 238)";
+    //     element.style.opacity = 1;
+    //     finalOpacity = .1;
+    // })
 });
 
 
@@ -152,6 +145,3 @@ function getColor() {
   }
   return color;
 }
-
-
-
