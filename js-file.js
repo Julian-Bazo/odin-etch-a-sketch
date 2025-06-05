@@ -55,21 +55,19 @@ for (i = 0; i < 16; i++) {
         for (j = 0; j < 16; j++) { 
             const newColumnDiv = document.createElement("div");
             newColumnDiv.classList.add("columnDiv");
+            let finalOpacity = .1;
             newColumnDiv.id = `i${i}j${j}`;
             newColumnDiv.innerHTML = "&nbsp";
-            let individualColumnDiv = document.querySelectorAll(".columnDiv");
-
-            Array.from(individualColumnDiv).forEach(element => {
-                element.addEventListener("mouseenter", () => {
-                if (randomCounter % 2 !== 0) {
-                element.style.backgroundColor = getColor();
-                element.style.opacity = embolden(opacityNumber);
-                }
-                if (randomCounter % 2 === 0){
-                    element.style.backgroundColor = "black";
-                }
-            })
-            })
+            newColumnDiv.addEventListener("mouseenter", () => {
+                    if (randomCounter % 2 !== 0) {
+                        newColumnDiv.style.backgroundColor = getColor();
+                        newColumnDiv.style.opacity = finalOpacity;
+                        finalOpacity = finalOpacity + .1;
+                    }
+                    if (randomCounter % 2 === 0){
+                    newColumnDiv.style.backgroundColor = "black";
+                    }
+                })
             
             // newColumnDiv.addEventListener("mouseenter", () => {
             //     if (randomCounter % 2 !== 0) {
@@ -155,13 +153,5 @@ function getColor() {
   return color;
 }
 
-// Opacity variable initialization
-const opacityNumber = .1;
-
-// Opacity function to increase opacity every time the function is activated
-function embolden(opacityNumber) {
-    finalOpacity = opacityNumber + .1;
-    return finalOpacity;
-}
 
 
