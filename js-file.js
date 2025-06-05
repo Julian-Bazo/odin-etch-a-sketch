@@ -11,7 +11,7 @@ totalContainer.appendChild(websiteHeader);
 
 // Customization button
 const customizeGridButton = document.createElement('button');
-customizeGridButton.textContent = "Click me to customize the grid";
+customizeGridButton.textContent = "Change grid dimensions";
 customizeGridButton.classList.add("customizeButton");
 totalContainer.appendChild(customizeGridButton);
 
@@ -43,7 +43,7 @@ const tempGrid = document.createElement('div');
     tempGrid.classList.add("tempGrid");
     gridDiv.appendChild(tempGrid);
 
-// Loop to create grid
+// Loop to create initial grid
 
 // This first loop creates the number of vertical rows
 for (i = 0; i < 16; i++) {
@@ -55,16 +55,31 @@ for (i = 0; i < 16; i++) {
         for (j = 0; j < 16; j++) { 
             const newColumnDiv = document.createElement("div");
             newColumnDiv.classList.add("columnDiv");
+            newColumnDiv.id = `i${i}j${j}`;
             newColumnDiv.innerHTML = "&nbsp";
-            newColumnDiv.addEventListener("mouseenter", () => {
+            let individualColumnDiv = document.querySelectorAll(".columnDiv");
+
+            Array.from(individualColumnDiv).forEach(element => {
+                element.addEventListener("mouseenter", () => {
                 if (randomCounter % 2 !== 0) {
-                newColumnDiv.style.backgroundColor = getColor();
-                newColumnDiv.style.opacity = embolden();
+                element.style.backgroundColor = getColor();
+                element.style.opacity = embolden(opacityNumber);
                 }
                 if (randomCounter % 2 === 0){
-                    newColumnDiv.style.backgroundColor = "black";
+                    element.style.backgroundColor = "black";
                 }
             })
+            })
+            
+            // newColumnDiv.addEventListener("mouseenter", () => {
+            //     if (randomCounter % 2 !== 0) {
+            //     newColumnDiv.style.backgroundColor = getColor();
+            //     newColumnDiv.style.opacity = embolden();
+            //     }
+            //     if (randomCounter % 2 === 0){
+            //         newColumnDiv.style.backgroundColor = "black";
+            //     }
+            // })
             newRowDiv.appendChild(newColumnDiv);
     }
     }
@@ -85,11 +100,19 @@ function recreateGrid(gridDimensions){
         // This second loop creates the number of horizontal columns
             for (j = 0; j < gridDimensions; j++) { 
                 const newColumnDiv = document.createElement("div");
+                let finalOpacity = .1;
                 newColumnDiv.classList.add("columnDiv");
                 newColumnDiv.innerHTML = "&nbsp";
+                newColumnDiv.id = `i${i}j${j}`;
                 newColumnDiv.addEventListener("mouseenter", () => {
-                    newColumnDiv.style.backgroundColor = getColor();
-                    newColumnDiv.style.opacity = embolden();
+                    if (randomCounter % 2 !== 0) {
+                        newColumnDiv.style.backgroundColor = getColor();
+                        newColumnDiv.style.opacity = finalOpacity;
+                        finalOpacity = finalOpacity + .1;
+                    }
+                    if (randomCounter % 2 === 0){
+                    newColumnDiv.style.backgroundColor = "black";
+                    }
                 })
                 newRowDiv.appendChild(newColumnDiv);
         }
@@ -133,13 +156,12 @@ function getColor() {
 }
 
 // Opacity variable initialization
-let opacityNumber = .01;
+const opacityNumber = .1;
 
 // Opacity function to increase opacity every time the function is activated
-function embolden() {
-    opacityNumber += .01;
-    return opacityNumber;
+function embolden(opacityNumber) {
+    finalOpacity = opacityNumber + .1;
+    return finalOpacity;
 }
 
 
-// document.documentElement.style.setProperty('--randomColor', getColor());
